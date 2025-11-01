@@ -10,6 +10,8 @@ INNER JOIN
   properties AS p ON b.property_id = p.property_id
 INNER JOIN
   payments AS pay ON b.booking_id = pay.booking_id
+ WHERE b.status = 'confirmed'
+    AND pay.amount > 0
 ORDER BY
   b.start_date DESC;
 
